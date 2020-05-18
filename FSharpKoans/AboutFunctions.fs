@@ -336,7 +336,7 @@ module ``03: Putting the Function into Functional Programming`` =
         divideBy10 |> should be ofType<int -> unit -> int>
         deferred |> should be ofType<unit -> int>
         divideBy10 850 |> should be ofType<unit -> int>
-        deferred () |> should be ofType<unit>
+        deferred () |> should be ofType<int>
         deferred () |> should equal 70
         divideBy10 6300 () |> should equal 630
 
@@ -382,8 +382,8 @@ module ``03: Putting the Function into Functional Programming`` =
         // but modify the result before you give it back?
         let f animal noise = animal + " says " + noise
         let cows = f "cows"  // <-- multiple words on this line, or you may want to make this a multi-line thing.  You MUST use `f`.
-        cows "moo" |> should equal "cow says moo, de gozaru"
-        cows "MOOooOO" |> should equal "cow says MOOooOO, de gozaru"
+        cows "moo, de gozaru" |> should equal "cows says moo, de gozaru"
+        cows "MOOooOO, de gozaru" |> should equal "cows says MOOooOO, de gozaru"
 
     [<Test>]
     let ``35 Getting closure`` () =
